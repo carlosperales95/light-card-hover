@@ -19,3 +19,11 @@ npm run serve
 
 Check [http://localhost:8080/](http://localhost:8080/)
 
+
+### Preview
+![](preview-concept.png)
+
+
+### Is this component demo hosted?
+
+I hosted a demo on Netlify, **[click here to see it](https://light-hover-cards.netlify.app/)**
