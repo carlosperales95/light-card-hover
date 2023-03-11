@@ -1,16 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
-
+@font-face {
+  font-family: "Neon Light";
+  src: url('./assets/Neon\ Light.otf');
+}
 
 :root {
-    --bg-color: rgb(20, 20, 20);
-    --card-color: rgb(23, 23, 23);
+    --bg-color: rgb(9, 9, 12);
+    --card-color: rgb(9, 15, 23);
   }
+
   
   body {
-    align-items: center;
     background-color: var(--bg-color);
-    display: flex;
     height: 100vh;
+  }
+
+  .main-title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Neon Light";
+    font-size: 100px;
+    color: rgba(0, 225, 255);
+    text-shadow: 5px 5px 60px rgb(170, 251, 247);
+    -webkit-animation: flicker 5s;
+    animation: flicker 5s;
+    animation-delay: 2s;
+
+  }
+
+  #app {
+    align-items: center;
+    display: flex;
+
     justify-content: center;
     margin: 0px;
     overflow: hidden;
@@ -30,7 +50,7 @@
   }
   
   .card {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(4, 232, 248, 0.1);
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -43,7 +63,7 @@
   .card:hover::before {
     opacity: 1;
   }
-  
+
   .card::before,
   .card::after {
     border-radius: inherit;
@@ -60,7 +80,7 @@
   .card::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y), 
-      rgba(255, 255, 255, 0.06),
+      rgba(0, 225, 255, 0.06),
       transparent 40%
     );
     z-index: 3;
@@ -85,6 +105,7 @@
     padding: 10px;
     position: absolute;
     z-index: 2;
+    overflow: hidden;
   }
   
   /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
@@ -94,6 +115,8 @@
     font-family: "Rubik", sans-serif;
     font-weight: 400;
     margin: 0px;
+    text-align: center;
+
   }
   
   i {  
@@ -103,14 +126,20 @@
   .card-image {
     align-items: center;
     display: flex;
-    height: 140px;
+    height: 100%;
     justify-content: center;
-    overflow: hidden;
+
   }
   
-  .card-image > i {
-    font-size: 6em;
-    opacity: 0.25;
+  .card-image > img {
+    opacity: 0.20;
+    pointer-events: none;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    z-index: -1;
+    overflow: hidden;
+    object-fit: cover;
   }
   
   .card-info-wrapper {
@@ -125,6 +154,9 @@
     align-items: flex-start;
     display: flex;
     gap: 10px;
+    width: 100%;
+    justify-content: center;
+    text-shadow: 0 0 50px black;
   }
   
   .card-info > i {  
@@ -143,7 +175,29 @@
     font-size: 0.85em;
     margin-top: 8px;
   }
+
+  /* -- ↓ ↓ ↓ animations ↓ ↓ ↓ -- */
+
+  @-webkit-keyframes flicker
+  {
+    0% {opacity:0;}
+    9% {opacity:0;}
+    10% {opacity:.5;}
+    13% {opacity:0;}
+    20% {opacity:.5;}
+    25% {opacity:1;}
+  } 
   
+
+  @keyframes flicker
+  {
+    0% {opacity:0;}
+    9% {opacity:0;}
+    10% {opacity:.5;}
+    13% {opacity:0;}
+    20% {opacity:.5;}
+    25% {opacity:1;}
+  } 
   /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
   
   @media(max-width: 1000px) {
